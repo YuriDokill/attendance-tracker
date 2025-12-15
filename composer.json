@@ -1,0 +1,15 @@
+{
+    "name": "your-name/attendance-tracker",
+    "description": "Система учета посещаемости сотрудников",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "files": [
+            "includes/functions.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit tests"
+    }
+}

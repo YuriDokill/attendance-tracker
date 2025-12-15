@@ -29,3 +29,17 @@ CREATE TABLE users (
     role ENUM('employee', 'admin') DEFAULT 'employee',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+### Таблица `attendance_records`
+```sql
+CREATE TABLE attendance_records (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    date DATE NOT NULL,
+    type ENUM('late', 'absence', 'vacation', 'own_account') NOT NULL,
+    reason TEXT,
+    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
